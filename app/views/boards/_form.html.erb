@@ -1,0 +1,11 @@
+<%= form_with(model: @board, local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true, placeholder: "Title" %>
+    <%= f.label :start %>
+    <%= f.text_field :start, placeholder: "Start Date" %>
+    <%= f.label :finish %>
+    <%= f.text_field :finish, placeholder: "Finish by ?" %>
+    <%= f.submit %>
+  </div>
+<% end %>

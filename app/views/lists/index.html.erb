@@ -1,0 +1,25 @@
+<h1 class="ui centered header"><%= @board.title %></h1>
+<div><%= link_to 'Add List', new_board_list_path(@board) %></div>
+<hr/>
+<div class="ui grid">
+  <div class="doubling eight column row">
+   <div class="column">
+    <h4>Lists</h4>
+     <ul>
+      <% @board.lists.each do |list| %>
+       <li><%= link_to "#{list.title}", board_list_path(@board, list) %></li>
+      <% end %>
+     </ul>
+    </div>
+  </div>
+  <%# <div class="doubling eight column row">
+    <div class="column">
+     <h4>Tasks</h4>
+      <% @list.tasks.each do |task| %>
+       <%# render 'tasks/task', { task: task } %>
+      <%#end %>
+    <%# </div>
+  </div>  %>
+</div>
+
+<div class="ui right floated button"><%= link_to "Back", boards_path %></div>

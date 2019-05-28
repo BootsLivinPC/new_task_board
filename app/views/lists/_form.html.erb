@@ -1,0 +1,15 @@
+<h1><%= @list.id ? 'Edit List' : 'Create List' %></h1>
+<hr />
+<%= form_with(model: [@board, @list], local: true, class: "ui form") do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true, autofocus: true %>
+  <br />
+  <%= f.label :priority %>
+  <%= f.select :priority, [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], required: true %>
+  <br />
+  <%= f.label :completed %>
+  <%= f.select :completed, ['True', 'False'], required: true %>
+  <br />
+  <br />
+  <%= f.submit nil, class: "ui button" %>
+<% end %>

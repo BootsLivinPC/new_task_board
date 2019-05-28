@@ -1,0 +1,35 @@
+<div class="ui centered card">
+  <div class="centered content">
+     <p class="centered header">
+       <%= @board.title %>
+     </p>
+     <div class="image">
+      <img src="https://picsum.photos/200/?random=2"/>
+      </div>
+      <div class="content">
+      <ul>
+        <li>Started:<%= @board.start %></li>
+        <li>Finish by:<%= @board.finish %></li>
+        </ul>
+      </div>
+  </div>
+</div>
+<div class="ui divider"></div>
+ <div class="ui grid">
+    <div class="eight wide column">
+     <h4><%= link_to 'Add to Lists', new_board_list_path(@board) %></h4>
+     <ol>
+      <% @board.lists.each do |list| %>
+       <li><%= link_to "#{list.title}", board_list_path(@board, list)  %></li>
+      <% end %>
+      </ol>
+    </div>
+</div>
+
+<br>
+<hr/>
+  <div class="ui two buttons">
+    <div class="ui button"><%= link_to 'Edit Board', edit_board_path(@board) %></div>
+    <div class="ui button"><%= link_to 'Back', boards_path %></div>
+  
+  </div>

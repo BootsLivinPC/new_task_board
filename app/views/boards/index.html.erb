@@ -1,0 +1,28 @@
+<h1 class="ui header">Your Boards</h1>
+<%= link_to "New Board", new_board_path %>
+<div class="ui divider"></div>
+
+<div class="ui grid">
+  <% @boards.each do |board| %>
+    <div class="sixteen wide mobile eight wide tablet four wide computer column">
+      <div class="ui card">
+        <div class="image">
+          <img src="https://picsum.photos/200/<%= board %>?random=1" />
+        </div>
+        <div class="content">
+          <%= link_to "#{board.title}", board, class: "header" %>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">
+              <%= link_to 'Edit', edit_board_path(board) %>
+            </div>
+            <div class="ui basic red button">
+              <%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

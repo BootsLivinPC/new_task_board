@@ -1,0 +1,16 @@
+<h1> Working on: <%= @board.title %></h1>
+<h4>Current Project: <%= @list.title %></h4>
+<h4>Priority: <%= @list.priority%></h4>
+
+<br />
+<h2>Tasks</h2>
+<% @list.tasks.each do |x| %>
+  <%= render 'tasks/task', { task: x } %>
+<% end %>
+<br />
+<%= link_to 'Add task', new_list_task_path(@list), class: "ui button blue" %>
+<br />
+<br />
+<%= link_to 'Edit List', edit_board_list_path([@board, @list]) %> |
+<%= link_to 'Delete List', [@board, @list], method: :delete %> |
+<%= link_to 'Back To Board', board_path(@board) %>

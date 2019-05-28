@@ -1,0 +1,13 @@
+<h1>Add A Task</h1>
+<%= form_with(model: [@list, @task], local: true, class: "ui form") do |f| %>
+  <%= f.label :title %>
+  <%= f.text_area :title, required: true %>
+  <br />
+  <%= f.label :completed %>
+  <%= f.select :completed, ['True', 'False'], required: true %>
+  <br />
+  <%= f.label :priority %>
+  <%= f.select :priority, [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], required: true %>
+  <br />
+  <%= f.submit nil, class: "ui button blue" %>
+<% end %>
